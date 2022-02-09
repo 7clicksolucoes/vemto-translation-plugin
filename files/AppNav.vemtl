@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand navbar-light navbar-white">
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        <i class="icon ion-md-menu"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @endguest
+
+                @php $locale = session()->get('locale'); @endphp
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @switch($locale)
+                            @case('de')
+                                <i class="flag-icon flag-icon-ch" title="de" id="de"></i> {{ __('German') }}
+                            @break
+                            @case('pt_BR')
+                                <i class="flag-icon flag-icon-us" title="pt_BR" id="pt_BR"></i> {{ __('Português') }}
+                            @break
+                            @default
+                                <i class="flag-icon flag-icon-us" title="us" id="us"></i> {{ __('English') }}
+                        @endswitch
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('lang', 'en') }}"><i class="flag-icon flag-icon-us" title="en" id="en"></i> {{__("English") }}</a>
+                        <a class="dropdown-item" href="{{ route('lang', 'de') }}"><i class="flag-icon flag-icon-ch" title="de" id="de"></i> {{__("German") }}</a>
+                        <a class="dropdown-item" href="{{ route('lang', 'pt_BR') }}"><i class="flag-icon flag-icon-pt_BR" title="pt_BR" id="pt_BR"></i> {{__("Português") }}</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

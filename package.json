@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "id": "br.com.7click.translation",
+    "name": "translation",
+    "title": "Translation",
+    "description": "Plugins translation vemto",
+    "image": "",
+    "main": "src/main.js",
+    "vueComponent": "dist/translation.umd.min.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/7clicksolucoes/vemto-translation-plugin"
+    },
+    "minVemtoVersion": "1.0.0"
+}
